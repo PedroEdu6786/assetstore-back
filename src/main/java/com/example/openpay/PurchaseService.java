@@ -1,6 +1,7 @@
-package com.purchaseservice;
+package com.example.openpay;
 
-import com.purchaseservice.Exceptions.RequestException;
+import com.example.openpay.Exceptions.RequestException;
+import mx.openpay.client.Charge;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,9 +10,9 @@ public class PurchaseService {
 	private APIService api;
 	@PostMapping("/charge")
 	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-	public ChargeDTO charge(@RequestBody CustomerDTO customer) throws RequestException {
+	public Charge charge(@RequestBody CustomerDTO customer) throws RequestException {
 		api = new openpayAPI();
-		ChargeDTO charge = api.charge(customer);
+		Charge charge = api.charge(customer);
 		return charge;
 	}
 }
