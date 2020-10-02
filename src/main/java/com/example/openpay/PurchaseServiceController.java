@@ -19,7 +19,7 @@ public class PurchaseServiceController {
 	public Charge greetingPost(@RequestBody CustomerDTO customer) throws OpenpayServiceException, ServiceUnavailableException {
 		System.out.println(customer.getTokenId());
 		OpenpayAPI api = new OpenpayAPI("https://sandbox-api.openpay.mx",
-				"f", "f");
+				"", "");
 
 		RequestBuilder request = new CreateCardChargeParams()
 				.cardId(customer.getTokenId())
