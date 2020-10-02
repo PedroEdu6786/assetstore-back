@@ -1,12 +1,12 @@
-package com.purchaseservice;
+package com.example.openpay;
 
-import com.purchaseservice.Exceptions.RequestException;
+import com.example.openpay.Exceptions.RequestException;
 import mx.openpay.client.Charge;
 
 public interface APIService {
 
     final Credentials credentials = new Credentials();
 
-    public ChargeDTO charge(CustomerDTO customer) throws RequestException;
+    public Charge charge(CustomerDTO customer) throws RequestException;
 
 }
