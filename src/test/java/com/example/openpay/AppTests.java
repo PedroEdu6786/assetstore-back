@@ -1,4 +1,4 @@
-package com.purchaseservice;
+package com.example.openpay;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
