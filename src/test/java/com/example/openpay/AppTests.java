@@ -1,10 +1,10 @@
-package com.example.openpay;
+package com.purchaseservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OpenpayApplicationTests {
+class AppTests {
 
 	@Test
 	void contextLoads() {

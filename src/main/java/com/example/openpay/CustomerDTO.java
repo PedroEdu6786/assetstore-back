@@ -1,4 +1,4 @@
-package com.example.openpay;
+package com.purchaseservice;
 
 import mx.openpay.client.Customer;
 

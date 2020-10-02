@@ -1,28 +1,17 @@
-package com.example.openpay;
+package com.purchaseservice;
 
-import mx.openpay.client.Charge;
-import mx.openpay.client.core.OpenpayAPI;
-import mx.openpay.client.core.requests.transactions.CreateCardChargeParams;
-import mx.openpay.client.exceptions.OpenpayServiceException;
-import mx.openpay.client.exceptions.ServiceUnavailableException;
+import com.purchaseservice.Exceptions.RequestException;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
 public class PurchaseService {
-    private OpenpayAPI api;
 
-    PurchaseService() {
-         api = new OpenpayAPI("https://sandbox-api.openpay.mx",
-                "puto", "comes");
-    }
-
-    public Charge chargeCustomer(CustomerDTO customer, String token_id) throws OpenpayServiceException, ServiceUnavailableException {
-        CreateCardChargeParams charge = new CreateCardChargeParams()
-                .cardId(token_id)
-                .amount(customer.getAmount())
-                .description(customer.getDescription())
-                .deviceSessionId(customer.getDeviceSessionId())
-                .customer(customer.getCustomer());
-
-        System.out.println(charge);
-        return this.api.charges().create(charge);
-    }
+	private APIService api;
+	@PostMapping("/charge")
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+	public ChargeDTO charge(@RequestBody CustomerDTO customer) throws RequestException {
+		api = new openpayAPI();
+		ChargeDTO charge = api.charge(customer);
+		return charge;
+	}
 }
