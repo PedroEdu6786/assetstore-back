@@ -1,25 +1,24 @@
-package com.purchaseservice;
+package com.example.openpay;
 
-import mx.openpay.client.core.requests.RequestBuilder;
-import mx.openpay.client.core.requests.transactions.CreateCardChargeParams;
+import mx.openpay.client.Charge;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
-public class ChargeDTO {
+public class ChargeDTO extends Charge {
 
-    private String cardId;
+    /*
     private BigDecimal amount;
+    private String id;
+    private Date creationDate;
+    private Date operationDate;
+    private String status;
     private String description;
-    private String deviceSessionId;
-    private CustomerDTO customer;
-
-    public String getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
+    private String customerId;
+    private String method;
+    //private CardDTO card;
+    private String authorization;
+    private String currency;
 
     public BigDecimal getAmount() {
         return amount;
@@ -27,6 +26,38 @@ public class ChargeDTO {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getOperationDate() {
+        return operationDate;
+    }
+
+    public void setOperationDate(Date operationDate) {
+        this.operationDate = operationDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDescription() {
@@ -37,19 +68,35 @@ public class ChargeDTO {
         this.description = description;
     }
 
-    public String getDeviceSessionId() {
-        return deviceSessionId;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setDeviceSessionId(String deviceSessionId) {
-        this.deviceSessionId = deviceSessionId;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public CustomerDTO getCustomer() {
-        return customer;
+    public String getMethod() {
+        return method;
     }
 
-    public void setCustomer(CustomerDTO customer) {
-        this.customer = customer;
+    public void setMethod(String method) {
+        this.method = method;
     }
+
+    public String getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(String authorization) {
+        this.authorization = authorization;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }*/
 }
