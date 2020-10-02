@@ -1,5 +1,5 @@
 
-package com.purchaseservice;
+package com.example.openpay;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
