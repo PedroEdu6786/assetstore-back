@@ -7,7 +7,6 @@ import java.util.Date;
 
 public class ChargeDTO extends Charge {
 
-    /*
     private BigDecimal amount;
     private String id;
     private Date creationDate;
@@ -98,5 +97,5 @@ public class ChargeDTO extends Charge {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }*/
+    }
 }
