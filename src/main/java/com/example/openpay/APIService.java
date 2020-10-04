@@ -7,6 +7,6 @@ public interface APIService {
 
     final Credentials credentials = new Credentials();
 
-    public Charge charge(CustomerDTO customer) throws RequestException;
+    public ChargeDTO createCharge(CustomerDTO customer) throws RequestException;
 
 }

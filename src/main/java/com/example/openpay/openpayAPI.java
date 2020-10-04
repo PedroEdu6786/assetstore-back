@@ -14,8 +14,8 @@ import java.util.Date;
 public class openpayAPI implements APIService {
 
     @Override
-    public Charge charge(CustomerDTO customer) throws RequestException {
-        OpenpayAPI api = new OpenpayAPI("https://sandbox-api.openpay.mx", credentials.getApiKey(), credentials.getMerchantId());
+    public ChargeDTO createCharge(CustomerDTO customer) throws RequestException {
+        OpenpayAPI api = new OpenpayAPI("https://sandbox-api.openpay.mx", credentials.getApiPrivateKey(), credentials.getMerchantId());
 
         RequestBuilder request = new CreateCardChargeParams()
                 .cardId(customer.getTokenId())
@@ -25,13 +25,13 @@ public class openpayAPI implements APIService {
                 .customer(customer.getCustomer());
 
         Charge charge;
-        ChargeDTO chargeDTO = null;
+        ChargeDTO chargeDTO = new ChargeDTO();
         try {
             charge = api.charges().createCharge(request);
-            System.out.println("Imprimiendo cargo...");
+            System.out.println("Imprimiendo CHARGE...");
             System.out.println(charge);
             System.out.println("*Cargo impreso con éxito...");
-            /*chargeDTO.setAmount(charge.getAmount());
+            chargeDTO.setAmount(charge.getAmount());
             chargeDTO.setId(charge.getId());
             chargeDTO.setCreationDate(charge.getCreationDate());
             chargeDTO.setOperationDate(charge.getOperationDate());
@@ -40,11 +40,11 @@ public class openpayAPI implements APIService {
             chargeDTO.setCustomerId(charge.getCustomerId());
             chargeDTO.setMethod(charge.getMethod());
             chargeDTO.setAuthorization(charge.getAuthorization());
-            chargeDTO.setCurrency(charge.getCurrency());*/
+            chargeDTO.setCurrency(charge.getCurrency());
         } catch (OpenpayServiceException | ServiceUnavailableException e) {
             throw new RequestException("");
         }
 
-        return charge;
+        return chargeDTO;
     }
 }
