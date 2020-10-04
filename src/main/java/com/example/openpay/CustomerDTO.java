@@ -5,6 +5,7 @@ import mx.openpay.client.Customer;
 import java.math.BigDecimal;
 
 public class CustomerDTO {
+
     private BigDecimal amount;
     private Customer customer;
     private String description;
