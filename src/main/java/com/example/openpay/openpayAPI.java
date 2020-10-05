@@ -1,6 +1,6 @@
 package com.example.openpay;
 
-import com.example.openpay.Exceptions.RequestException;
+import com.example.openpay.Exceptions.ResourceNotFoundException;
 import mx.openpay.client.Charge;
 import mx.openpay.client.core.OpenpayAPI;
 import mx.openpay.client.core.requests.RequestBuilder;
@@ -8,13 +8,10 @@ import mx.openpay.client.core.requests.transactions.CreateCardChargeParams;
 import mx.openpay.client.exceptions.OpenpayServiceException;
 import mx.openpay.client.exceptions.ServiceUnavailableException;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 public class openpayAPI implements APIService {
 
     @Override
-    public ChargeDTO createCharge(CustomerDTO customer) throws RequestException {
+    public ChargeDTO createCharge(CustomerDTO customer) throws ResourceNotFoundException {
         OpenpayAPI api = new OpenpayAPI("https://sandbox-api.openpay.mx", credentials.getApiPrivateKey(), credentials.getMerchantId());
 
         RequestBuilder request = new CreateCardChargeParams()
@@ -42,7 +39,7 @@ public class openpayAPI implements APIService {
             chargeDTO.setAuthorization(charge.getAuthorization());
             chargeDTO.setCurrency(charge.getCurrency());
         } catch (OpenpayServiceException | ServiceUnavailableException e) {
-            throw new RequestException("");
+            throw new ResourceNotFoundException("");
         }
 
         return chargeDTO;

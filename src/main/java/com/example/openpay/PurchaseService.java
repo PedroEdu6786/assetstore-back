@@ -1,7 +1,6 @@
 package com.example.openpay;
 
-import com.example.openpay.Exceptions.RequestException;
-import mx.openpay.client.Charge;
+import com.example.openpay.Exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +15,7 @@ public class PurchaseService {
 
 	@PostMapping("/charge")
 	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-	public ChargeDTO createCharge(@RequestBody CustomerDTO customer) throws RequestException {
+	public ChargeDTO createCharge(@RequestBody CustomerDTO customer) throws ResourceNotFoundException {
 
 		ChargeDTO chargeDTO = api.createCharge(customer);
 
