@@ -2,14 +2,14 @@
 package com.example.openpay;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class OpenpayApplication {
+@EnableJpaAuditing
+public class App {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OpenpayApplication.class, args);
+		SpringApplication.run(App.class, args);
 	}
 
 }
